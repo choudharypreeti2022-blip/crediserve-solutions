@@ -8,6 +8,7 @@
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; }
         header { background-color: #004d40; color: white; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; }
         header h1 { margin: 0; font-size: 24px; }
+        .admin-link { color: #ff9800; text-decoration: none; font-weight: bold; font-size: 14px; background: #ffffff; padding: 5px 10px; border-radius: 4px; }
         .hero { background: linear-gradient(rgba(0,77,64,0.8), rgba(0,77,64,0.8)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80'); background-size: cover; color: white; text-align: center; padding: 80px 20px; }
         .hero h2 { font-size: 36px; margin-bottom: 20px; }
         .hero p { font-size: 18px; max-width: 700px; margin: 0 auto 30px auto; line-height: 1.6; }
@@ -16,13 +17,18 @@
         .features { display: flex; justify-content: space-around; padding: 50px 20px; background-color: white; flex-wrap: wrap; }
         .feature-box { width: 30%; min-width: 280px; margin-bottom: 20px; padding: 20px; background: #f9f9f9; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
         .feature-box h3 { color: #004d40; }
-        .form-section { background-color: #ffffff; padding: 40px 20px; max-width: 600px; margin: 40px auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .form-section h3 { text-align: center; color: #004d40; margin-bottom: 20px; }
+        .form-section, .admin-section { background-color: #ffffff; padding: 40px 20px; max-width: 600px; margin: 40px auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .form-section h3, .admin-section h3 { text-align: center; color: #004d40; margin-bottom: 20px; }
         .form-group { margin-bottom: 15px; }
         .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
         .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
         .form-submit { background-color: #004d40; color: white; border: none; padding: 12px; width: 100%; font-size: 16px; font-weight: bold; border-radius: 4px; cursor: pointer; }
         .form-submit:hover { background-color: #00332c; }
+        
+        /* Admin Hidden Section Styling */
+        #admin-panel { display: none; border: 2px dashed #004d40; padding: 20px; margin-top: 20px; background: #e0f2f1; border-radius: 6px; }
+        .admin-login-box { text-align: center; }
+        
         footer { background-color: #263238; color: white; text-align: center; padding: 20px; margin-top: 40px; }
     </style>
 </head>
@@ -30,7 +36,11 @@
 
     <header>
         <h1>CrediServe Solutions</h1>
-        <p>Founder: Preeti Manikant Choudhary</p>
+        <div>
+            <p style="margin: 0; display: inline-block; margin-right: 15px;">Founder: Preeti Manikant Choudhary</p>
+            <!-- एडमिन के लिए गुप्त बटन -->
+            <a href="#admin-section" class="admin-link" onclick="toggleAdmin()">🔐 Admin Login</a>
+        </div>
     </header>
 
     <div class="hero">
@@ -54,13 +64,10 @@
         </div>
     </div>
 
-    <!-- User Registration Form Section -->
+    <!-- User Registration Form Section (आम यूजर्स के लिए विंडो) -->
     <div id="register-form" class="form-section">
-        <h3>यूजर रजिस्ट्रेशन फॉर्म</h3>
-        <!-- आपकी ईमेल आईडी यहाँ सेट कर दी गई है -->
+        <h3>यूजर रजिस्ट्रेशन फॉर्म (ग्राहकों के लिए)</h3>
         <form action="https://formsubmit.co/choudharypreeti2022@gmail.com" method="POST">
-            
-            <!-- यह स्पैम रोकने के लिए है -->
             <input type="hidden" name="_captcha" value="false">
 
             <div class="form-group">
@@ -85,6 +92,16 @@
             </div>
             <button type="submit" class="form-submit">सबमिट करें</button>
         </form>
+    </div>
+
+    <!-- Admin Section (सिर्फ आपके लिए - गुप्त एडमिन विंडो) -->
+    <div id="admin-section" class="admin-section">
+        <h3>🔐 एडमिन कंट्रोल पैनल (Founder Only)</h3>
+        <div class="admin-login-box">
+            <p>मैडम, यहाँ से आप अपने ग्राहकों के फॉर्म डेटा को सीधे अपनी ईमेल <b>choudharypreeti2022@gmail.com</b> पर प्राप्त कर रही हैं।</p>
+            <p>जब भी कोई यूजर फॉर्म भरेगा, उसका पूरा ब्योरा आपकी मेल पर सुरक्षित आ जाएगा।</p>
+            <button onclick="alert('आपकी सभी लीड्स सीधे आपकी ईमेल (choudharypreeti2022@gmail.com) पर सुरक्षित भेजी जा रही हैं।')" style="background-color: #004d40; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">मेल इनबॉक्स चेक करें</button>
+        </div>
     </div>
 
     <footer>
