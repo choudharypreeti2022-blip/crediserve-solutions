@@ -57,26 +57,31 @@
     <!-- User Registration Form Section -->
     <div id="register-form" class="form-section">
         <h3>यूजर रजिस्ट्रेशन फॉर्म</h3>
-        <form>
+        <!-- आपकी ईमेल आईडी यहाँ सेट कर दी गई है -->
+        <form action="https://formsubmit.co/choudharypreeti2022@gmail.com" method="POST">
+            
+            <!-- यह स्पैम रोकने के लिए है -->
+            <input type="hidden" name="_captcha" value="false">
+
             <div class="form-group">
                 <label for="name">पूरा नाम (Full Name):</label>
-                <input type="text" id="name" placeholder="अपना नाम यहाँ लिखें" required>
+                <input type="text" id="name" name="Full_Name" placeholder="अपना नाम यहाँ लिखें" required>
             </div>
             <div class="form-group">
                 <label for="phone">मोबाइल नंबर (Mobile Number):</label>
-                <input type="tel" id="phone" placeholder="अपना मोबाइल नंबर लिखें" required>
+                <input type="tel" id="phone" name="Mobile_Number" placeholder="अपना मोबाइल नंबर लिखें" required>
             </div>
             <div class="form-group">
                 <label for="income">महीने की कुल कमाई (Monthly Income):</label>
-                <input type="number" id="income" placeholder="रुपये में दर्ज करें">
+                <input type="number" id="income" name="Monthly_Income" placeholder="रुपये में दर्ज करें">
             </div>
             <div class="form-group">
                 <label for="debt">कुल कर्ज/लोन की राशि (Total Debt):</label>
-                <input type="number" id="debt" placeholder="कुल लोन कितना है">
+                <input type="number" id="debt" name="Total_Debt" placeholder="कुल लोन कितना है">
             </div>
             <div class="form-group">
                 <label for="stress">मुख्य समस्या या तनाव:</label>
-                <textarea id="stress" rows="3" placeholder="अपनी समस्या संक्षेप में लिखें"></textarea>
+                <textarea id="stress" name="Problem_Description" rows="3" placeholder="अपनी समस्या संक्षेप में लिखें"></textarea>
             </div>
             <button type="submit" class="form-submit">सबमिट करें</button>
         </form>
