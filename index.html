@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrediServe Solutions - Karz Mukti aur Financial Wellness</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; }
+        header { background-color: #004d40; color: white; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; }
+        header h1 { margin: 0; font-size: 24px; }
+        .hero { background: linear-gradient(rgba(0,77,64,0.8), rgba(0,77,64,0.8)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80'); background-size: cover; color: white; text-align: center; padding: 80px 20px; }
+        .hero h2 { font-size: 36px; margin-bottom: 20px; }
+        .hero p { font-size: 18px; max-width: 700px; margin: 0 auto 30px auto; line-height: 1.6; }
+        .btn { background-color: #ff9800; color: white; padding: 15px 30px; text-decoration: none; font-size: 18px; font-weight: bold; border-radius: 5px; display: inline-block; }
+        .btn:hover { background-color: #e68900; }
+        .features { display: flex; justify-content: space-around; padding: 50px 20px; background-color: white; flex-wrap: wrap; }
+        .feature-box { width: 30%; min-width: 280px; margin-bottom: 20px; padding: 20px; background: #f9f9f9; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
+        .feature-box h3 { color: #004d40; }
+        .form-section { background-color: #ffffff; padding: 40px 20px; max-width: 600px; margin: 40px auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .form-section h3 { text-align: center; color: #004d40; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .form-submit { background-color: #004d40; color: white; border: none; padding: 12px; width: 100%; font-size: 16px; font-weight: bold; border-radius: 4px; cursor: pointer; }
+        .form-submit:hover { background-color: #00332c; }
+        footer { background-color: #263238; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>CrediServe Solutions</h1>
+        <p>Founder: Preeti Manikant Choudhary</p>
+    </header>
+
+    <div class="hero">
+        <h2>कर्ज के तनाव से आजादी, एक नई और अनुशासन भरी जिंदगी</h2>
+        <p>हम आपके वित्तीय बोझ, खर्च और लोन को समझकर आपको एक ऑटोमैटिक और सही रास्ता दिखाते हैं, ताकि आप मानसिक तनाव से मुक्त हो सकें।</p>
+        <a href="#register-form" class="btn">अभी रजिस्ट्रेशन करें</a>
+    </div>
+
+    <div class="features">
+        <div class="feature-box">
+            <h3>ऑटोमैटिक वित्तीय विश्लेषण</h3>
+            <p>अपनी आय, खर्च और लोन की जानकारी दर्ज करें और तुरंत स्मार्ट समाधान पाएं।</p>
+        </div>
+        <div class="feature-box">
+            <h3>नैतिकता और शिक्षा</h3>
+            <p>पैसे के सही प्रबंधन, वित्तीय साक्षरता और जीवन में अनुशासन की विशेष ट्रेनिंग।</p>
+        </div>
+        <div class="feature-box">
+            <h3>मानसिक शांति</h3>
+            <p>कर्ज के बोझ से बाहर निकलकर एक सुरक्षित और आत्मनिर्भर भविष्य का निर्माण करें।</p>
+        </div>
+    </div>
+
+    <!-- User Registration Form Section -->
+    <div id="register-form" class="form-section">
+        <h3>यूजर रजिस्ट्रेशन फॉर्म</h3>
+        <form>
+            <div class="form-group">
+                <label for="name">पूरा नाम (Full Name):</label>
+                <input type="text" id="name" placeholder="अपना नाम यहाँ लिखें" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">मोबाइल नंबर (Mobile Number):</label>
+                <input type="tel" id="phone" placeholder="अपना मोबाइल नंबर लिखें" required>
+            </div>
+            <div class="form-group">
+                <label for="income">महीने की कुल कमाई (Monthly Income):</label>
+                <input type="number" id="income" placeholder="रुपये में दर्ज करें">
+            </div>
+            <div class="form-group">
+                <label for="debt">कुल कर्ज/लोन की राशि (Total Debt):</label>
+                <input type="number" id="debt" placeholder="कुल लोन कितना है">
+            </div>
+            <div class="form-group">
+                <label for="stress">मुख्य समस्या या तनाव:</label>
+                <textarea id="stress" rows="3" placeholder="अपनी समस्या संक्षेप में लिखें"></textarea>
+            </div>
+            <button type="submit" class="form-submit">सबमिट करें</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 CrediServe Solutions. All Rights Reserved. | Karjat, Maharashtra</p>
+    </footer>
+
+</body>
+</html>
