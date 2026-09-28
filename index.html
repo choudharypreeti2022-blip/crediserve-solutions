@@ -48,22 +48,34 @@
 
         footer { background-color: #212121; color: var(--white); text-align: center; padding: 25px; margin-top: 60px; font-size: 14px; }
         
-        /* World Language Dropdown Styling */
-        .world-lang-select {
-            padding: 8px 14px;
-            border-radius: 6px;
-            border: 1px solid rgba(255,255,255,0.3);
-            background: rgba(255,255,255,0.1);
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
+        /* --- 100+ Languages & Complete Removal of 'G' Icon --- */
+        .goog-te-combo { 
+            padding: 8px 12px; 
+            border-radius: 6px; 
+            border: 1px solid #ccc; 
+            font-family: 'Poppins', sans-serif; 
+            font-size: 14px; 
+            background: white; 
+            color: #004d40; 
+            outline: none; 
+            cursor: pointer; 
             font-weight: 500;
-            outline: none;
-            cursor: pointer;
         }
-        .world-lang-select option {
-            background: #004d40;
-            color: white;
+        .goog-logo-link, .goog-te-gadget span, .goog-te-gadget img, .VIpgJd-ZVi9od-ORHb-OAI { 
+            display: none !important; 
+        }
+        .goog-te-gadget { 
+            color: transparent !important; 
+            font-size: 0px; 
+        }
+        .skiptranslate { 
+            display: inline-block; 
+        }
+        body { 
+            top: 0px !important; 
+        }
+        .goog-te-banner-frame { 
+            display: none !important; 
         }
     </style>
 </head>
@@ -74,19 +86,7 @@
             <p>Founder: Preeti Manikant Choudhary</p>
         </div>
         <nav style="display: flex; align-items: center; gap: 15px;">
-            <!-- Custom World Language Selector without 'G' Sign -->
-            <select class="world-lang-select" onchange="translatePage(this.value)">
-                <option value="en">🌐 English (Global)</option>
-                <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
-                <option value="mr">🇮🇳 मराठी (Marathi)</option>
-                <option value="es">🇪🇸 Español (Spanish)</option>
-                <option value="fr">🇫🇷 Français (French)</option>
-                <option value="de">🇩🇪 Deutsch (German)</option>
-                <option value="ja">🇯🇵 日本語 (Japanese)</option>
-                <option value="ar">🇸🇦 العربية (Arabic)</option>
-                <option value="zh-CN">🇨🇳 中文 (Chinese)</option>
-                <option value="ru">🇷🇺 Русский (Russian)</option>
-            </select>
+            <div id="google_translate_element"></div>
             <a href="index.html" class="active">Home</a>
             <a href="#services">Services</a>
             <a href="admin.html" class="admin-btn">🔐 Admin Panel</a>
@@ -95,24 +95,24 @@
     
     <section class="hero">
         <div class="hero-content">
-            <h2 id="t-hero">Freedom from Debt Stress, A New Disciplined Life</h2>
-            <p id="t-desc">We analyze your financial burdens, expenses, and loans to provide you with a smart automated roadmap, helping you achieve complete mental peace.</p>
-            <a href="#register-form" class="hero-btn" id="t-btn">Register Now</a>
+            <h2>Freedom from Debt Stress, A New Disciplined Life</h2>
+            <p>We analyze your financial burdens, expenses, and loans to provide you with a smart automated roadmap, helping you achieve complete mental peace.</p>
+            <a href="#register-form" class="hero-btn">Register Now</a>
         </div>
     </section>
 
     <section id="services" class="features-container">
         <div class="feature-card">
-            <h3 id="t-f1-title">Automated Financial Analysis</h3>
-            <p id="t-f1-desc">Enter your monthly income, expenses, and total debt to instantly receive smart resolution strategies.</p>
+            <h3>Automated Financial Analysis</h3>
+            <p>Enter your monthly income, expenses, and total debt to instantly receive smart resolution strategies.</p>
         </div>
         <div class="feature-card">
-            <h3 id="t-f2-title">Ethics & Life Education</h3>
-            <p id="t-f2-desc">Specialized training in proper money management, financial literacy, and maintaining life discipline.</p>
+            <h3>Ethics & Life Education</h3>
+            <p>Specialized training in proper money management, financial literacy, and maintaining life discipline.</p>
         </div>
         <div class="feature-card">
-            <h3 id="t-f3-title">Complete Mental Peace</h3>
-            <p id="t-f3-desc">Break free from debt pressure and recovery calls to build a secure, self-reliant future.</p>
+            <h3>Complete Mental Peace</h3>
+            <p>Break free from debt pressure and recovery calls to build a secure, self-reliant future.</p>
         </div>
     </section>
 
@@ -150,60 +150,17 @@
         <p>&copy; 2026 CrediServe Solutions. All Rights Reserved. | Karjat, Maharashtra | Founder: Preeti Manikant Choudhary</p>
     </footer>
 
-    <!-- Instant Translation Script -->
-    <script>
-        const translations = {
-            hi: {
-                hero: "कर्ज के तनाव से आजादी, एक नई और अनुशासन भरी जिंदगी",
-                desc: "हम आपके वित्तीय बोझ, खर्च और लोन को व्यवस्थित कर आपको एक सुरक्षित ऑटोमैटिक रास्ता दिखाते हैं, ताकि आप और आपका परिवार मानसिक तनाव से पूरी तरह मुक्त हो सकें।",
-                btn: "अभी रजिस्ट्रेशन करें",
-                f1Title: "ऑटोमैटिक वित्तीय विश्लेषण",
-                f1Desc: "अपनी मासिक आय, खर्च और कुल लोन की सही जानकारी दर्ज करें और तुरंत स्मार्ट समाधान प्राप्त करें।",
-                f2Title: "नैतिकता और जीवन शिक्षा",
-                f2Desc: "पैसे के सही प्रबंधन, वित्तीय साक्षरता और जीवन में अनुशासन बनाए रखने की विशेष ट्रेनिंग।",
-                f3Title: "पूर्ण मानसिक शांति",
-                f3Desc: "कर्ज के दबाव और कॉल्स से बाहर निकलकर एक सुरक्षित और आत्मनिर्भर भविष्य का निर्माण करें।"
-            },
-            mr: {
-                hero: "कर्जाच्या तणावातून मुक्ती, एक नवीन आणि शिस्तबद्ध जीवन",
-                desc: "आम्ही तुमची आर्थिक ओझे, खर्च आणि कर्जे व्यवस्थित करून तुम्हाला एक सुरक्षित स्वयंचलित मार्ग दाखवतो, जेणेकरून तुम्ही मानसिक तणावातून पूर्णपणे मुक्त होऊ शकाल.",
-                btn: "आता नोंदणी करा",
-                f1Title: "स्वयंचलित आर्थिक विश्लेषण",
-                f1Desc: "तुमचे मासिक उत्पन्न, खर्च आणि एकूण कर्जाची अचूक माहिती प्रविष्ट करा आणि त्वरित स्मार्ट उपाय मिळवा.",
-                f2Title: "नैतिकता आणि जीवन शिक्षण",
-                f2Desc: "योग्य पैशांचे व्यवस्थापन, आर्थिक साक्षरता आणि जीवनात शिस्त राखण्यासाठी विशेष प्रशिक्षण.",
-                f3Title: "पूर्ण मानसिक शांतता",
-                f3Desc: "कर्जाचा दबाव आणि कॉल्सपासून मुक्त होऊन सुरक्षित आणि स्वावलंबी भविष्याची निर्मिती करा."
-            },
-            en: {
-                hero: "Freedom from Debt Stress, A New Disciplined Life",
-                desc: "We analyze your financial burdens, expenses, and loans to provide you with a smart automated roadmap, helping you achieve complete mental peace.",
-                btn: "Register Now",
-                f1Title: "Automated Financial Analysis",
-                f1Desc: "Enter your monthly income, expenses, and total debt to instantly receive smart resolution strategies.",
-                f2Title: "Ethics & Life Education",
-                f2Desc: "Specialized training in proper money management, financial literacy, and maintaining life discipline.",
-                f3Title: "Complete Mental Peace",
-                f3Desc: "Break free from debt pressure and recovery calls to build a secure, self-reliant future."
-            }
-        };
-
-        function translatePage(lang) {
-            if (lang === 'en' || !translations[lang]) {
-                location.reload();
-                return;
-            }
-            const t = translations[lang];
-            document.getElementById('t-hero').innerText = t.hero;
-            document.getElementById('t-desc').innerText = t.desc;
-            document.getElementById('t-btn').innerText = t.btn;
-            document.getElementById('t-f1-title').innerText = t.f1Title;
-            document.getElementById('t-f1-desc').innerText = t.f1Desc;
-            document.getElementById('t-f2-title').innerText = t.f2Title;
-            document.getElementById('t-f2-desc').innerText = t.f2Desc;
-            document.getElementById('t-f3-title').innerText = t.f3Title;
-            document.getElementById('t-f3-desc').innerText = t.f3Desc;
+    <!-- Google Translate Script for 100+ Languages -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'hi,mr,en,es,fr,de,zh-CN,ja,ar,ru,pt,it,ko,bn,pa,ta,te,gu,ur,ml,kn,or,as,ne,si,fa,tr,vi,th,id,ms,fil,nl,pl,uk,ro,el,hu,cs,sv,da,fi,no,sk,bg,hr,sr,lt,lv,et,sl,he,sw,af,sq,am,hy,az,eu,be,bs,ny,co,eo,gl,ka,ha,ig,is,jw,kk,km,ku,ky,lo,la,lb,mk,mg,mt,mi,mn,my,ps,sm,gd,st,sn,sd,so,su,tg,tt,tk,uz,xh,yi,yo,zu',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
         }
     </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
