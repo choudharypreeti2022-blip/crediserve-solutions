@@ -1,187 +1,143 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CrediServe Solutions - Karz Mukti aur Financial Wellness</title>
-    <!-- Google Fonts & Icons -->
+    <title>CrediServe Solutions - Debt Relief & Financial Wellness</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #004d40;
-            --secondary-color: #ff9800;
-            --bg-light: #f4f7f6;
-            --text-dark: #2c3e50;
-            --white: #ffffff;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
-
-        /* Header / Navbar */
-        header { background-color: var(--primary-color); color: var(--white); padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        .logo-area h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.5px; }
-        .logo-area p { font-size: 12px; opacity: 0.8; }
-        .nav-buttons { display: flex; gap: 15px; align-items: center; }
-        .btn-nav { background-color: var(--secondary-color); color: var(--white); padding: 8px 18px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px; transition: 0.3s; }
-        .btn-nav:hover { background-color: #e68900; }
-        .btn-admin { background-color: transparent; border: 2px solid var(--white); color: var(--white); }
-        .btn-admin:hover { background-color: var(--white); color: var(--primary-color); }
-
-        /* Hero Section */
-        .hero { background: linear-gradient(rgba(0,77,64,0.85), rgba(0,77,64,0.85)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80'); background-size: cover; background-position: center; color: var(--white); text-align: center; padding: 100px 20px; }
-        .hero h2 { font-size: 42px; margin-bottom: 20px; font-weight: 700; }
-        .hero p { font-size: 18px; max-width: 750px; margin: 0 auto 35px auto; opacity: 0.9; }
-        .hero-btn { background-color: var(--secondary-color); color: var(--white); padding: 15px 35px; text-decoration: none; font-size: 18px; font-weight: 600; border-radius: 6px; box-shadow: 0 4px 15px rgba(255,152,0,0.4); display: inline-block; transition: 0.3s; }
-        .hero-btn:hover { transform: translateY(-2px); }
-
-        /* Features Section */
-        .features-container { display: flex; justify-content: center; gap: 30px; padding: 60px 20px; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; }
-        .feature-card { background: var(--white); flex: 1; min-width: 300px; max-width: 360px; padding: 35px 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; transition: 0.3s; border-bottom: 4px solid var(--primary-color); }
-        .feature-card:hover { transform: translateY(-5px); }
-        .feature-card h3 { color: var(--primary-color); margin-bottom: 15px; font-size: 20px; }
-        .feature-card p { font-size: 14px; color: #666; }
-
-        /* Main Workspace Area (User vs Admin Toggle) */
-        .workspace { max-width: 800px; margin: 40px auto; padding: 0 20px; }
-
-        /* User Registration Form */
-        .form-box { background: var(--white); padding: 40px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
-        .form-box h3 { color: var(--primary-color); text-align: center; margin-bottom: 25px; font-size: 26px; }
-        .input-group { margin-bottom: 20px; }
-        .input-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px; }
-        .input-group input, .input-group textarea { width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px; outline: none; transition: 0.3s; }
-        .input-group input:focus, .input-group textarea:focus { border-color: var(--primary-color); box-shadow: 0 0 5px rgba(0,77,64,0.2); }
-        .submit-btn { background-color: var(--primary-color); color: var(--white); border: none; padding: 14px; width: 100%; font-size: 16px; font-weight: 600; border-radius: 6px; cursor: pointer; transition: 0.3s; }
-        .submit-btn:hover { background-color: #00332c; }
-
-        /* Admin Dashboard (Hidden by default, opens on click) */
-        #admin-dashboard { display: none; background: var(--white); padding: 40px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); border: 2px solid var(--secondary-color); }
-        #admin-dashboard h3 { color: var(--secondary-color); text-align: center; margin-bottom: 20px; font-size: 26px; }
-        .admin-stats { display: flex; justify-content: space-around; background: #fff8e1; padding: 20px; border-radius: 8px; margin-bottom: 20px; text-align: center; }
-        .stat-item h4 { font-size: 22px; color: var(--primary-color); }
-        .stat-item p { font-size: 13px; color: #555; }
-        .admin-info-box { background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
-        .admin-info-box p { font-size: 14px; margin-bottom: 10px; }
-
-        /* Footer */
-        footer { background-color: #212121; color: var(--white); text-align: center; padding: 25px; margin-top: 60px; font-size: 14px; }
-
-        /* Responsive */
-        @media(max-width: 768px) {
-            header { padding: 15px 20px; flex-direction: column; gap: 10px; text-align: center; }
-            .hero h2 { font-size: 30px; }
-        }
-    </style>
 </head>
 <body>
-
-    <!-- Top Header -->
     <header>
         <div class="logo-area">
             <h1>CrediServe Solutions</h1>
             <p>Founder: Preeti Manikant Choudhary</p>
         </div>
-        <div class="nav-buttons">
-            <a href="#register-form" class="btn-nav" onclick="showUserView()">👤 User Portal</a>
-            <a href="#admin-dashboard" class="btn-nav btn-admin" onclick="showAdminView()">🔐 Admin Dashboard</a>
-        </div>
+        <nav style="display: flex; align-items: center; gap: 15px;">
+            <select id="languageSelect" onchange="changeLanguage(this.value)" style="padding: 6px 12px; border-radius: 4px; border: 1px solid #ccc; font-family: 'Poppins', sans-serif; font-weight: 500; background: #ffffff; color: #004d40; cursor: pointer;">
+                <option value="en">🌐 English</option>
+                <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
+                <option value="mr">🇮🇳 मराठी (Marathi)</option>
+                <option value="es">🇪🇸 Español (Spanish)</option>
+                <option value="fr">🇫🇷 Français (French)</option>
+                <option value="de">🇩🇪 Deutsch (German)</option>
+            </select>
+            <a href="index.html" class="active">Home</a>
+            <a href="#services">Services</a>
+            <a href="admin.html" class="admin-btn">🔐 Admin Panel</a>
+        </nav>
     </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h2 id="t-hero-title">Freedom from Debt Stress, A New Disciplined Life</h2>
+            <p id="t-hero-desc">We analyze your financial burdens, expenses, and loans to provide you with a smart automated roadmap, helping you achieve complete mental peace.</p>
+            <a href="#register-form" class="hero-btn" id="t-hero-btn">Register Now</a>
+        </div>
+    </section>
 
-    <!-- Hero Section -->
-    <div class="hero">
-        <h2>कर्ज के तनाव से आजादी, एक नई और अनुशासन भरी जिंदगी</h2>
-        <p>हम आपके वित्तीय बोझ, खर्च और लोन को व्यवस्थित कर आपको एक सुरक्षित ऑटोमैटिक रास्ता दिखाते हैं, ताकि आप और आपका परिवार मानसिक तनाव से पूरी तरह मुक्त हो सकें।</p>
-        <a href="#register-form" class="btn-hero" onclick="showUserView()">अभी रजिस्ट्रेशन करें</a>
-    </div>
-
-    <!-- Core Features -->
-    <div class="features-container">
+    <section id="services" class="features-container">
         <div class="feature-card">
-            <h3>ऑटोमैटिक वित्तीय विश्लेषण</h3>
-            <p>अपनी मासिक आय, खर्च और कुल लोन की सही जानकारी दर्ज करें और तुरंत स्मार्ट समाधान प्राप्त करें।</p>
+            <h3 id="t-feat1-title">Automated Financial Analysis</h3>
+            <p id="t-feat1-desc">Enter your monthly income, expenses, and total debt to instantly receive smart resolution strategies.</p>
         </div>
         <div class="feature-card">
-            <h3>नैतिकता और जीवन शिक्षा</h3>
-            <p>पैसे के सही प्रबंधन, वित्तीय साक्षरता और जीवन में अनुशासन बनाए रखने की विशेष ट्रेनिंग।</p>
+            <h3 id="t-feat2-title">Ethics & Life Education</h3>
+            <p id="t-feat2-desc">Specialized training in proper money management, financial literacy, and maintaining life discipline.</p>
         </div>
         <div class="feature-card">
-            <h3>पूर्ण मानसिक शांति</h3>
-            <p>कर्ज के दबाव और कॉल्स से बाहर निकलकर एक सुरक्षित और आत्मनिर्भर भविष्य का निर्माण करें।</p>
+            <h3 id="t-feat3-title">Complete Mental Peace</h3>
+            <p id="t-feat3-desc">Break free from debt pressure and recovery calls to build a secure, self-reliant future.</p>
         </div>
-    </div>
+    </section>
 
-    <!-- Dynamic Workspace (User Form & Admin Window) -->
     <div class="workspace">
-
-        <!-- 1. USER REGISTRATION WINDOW -->
-        <div id="user-view" class="form-box">
-            <h3 id="register-form">यूजर रजिस्ट्रेशन फॉर्म (कस्टमर पोर्टल)</h3>
+        <div class="form-box">
+            <h3 id="register-form">User Registration Form (Customer Portal)</h3>
             <form action="https://formsubmit.co/choudharypreeti2022@gmail.com" method="POST">
                 <input type="hidden" name="_captcha" value="false">
-
                 <div class="input-group">
-                    <label for="name">पूरा नाम (Full Name):</label>
-                    <input type="text" id="name" name="Full_Name" placeholder="अपना पूरा नाम यहाँ लिखें" required>
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="Full_Name" placeholder="Enter your full name" required>
                 </div>
                 <div class="input-group">
-                    <label for="phone">मोबाइल नंबर (Mobile Number):</label>
-                    <input type="tel" id="phone" name="Mobile_Number" placeholder="अपना मोबाइल नंबर दर्ज करें" required>
+                    <label for="phone">Mobile Number:</label>
+                    <input type="tel" id="phone" name="Mobile_Number" placeholder="Enter your mobile number" required>
                 </div>
                 <div class="input-group">
-                    <label for="income">महीने की कुल कमाई (Monthly Income - ₹):</label>
-                    <input type="number" id="income" name="Monthly_Income" placeholder="उदा. 45000">
+                    <label for="income">Total Monthly Income (₹):</label>
+                    <input type="number" id="income" name="Monthly_Income" placeholder="e.g. 45000">
                 </div>
                 <div class="input-group">
-                    <label for="debt">कुल कर्ज/लोन की राशि (Total Debt - ₹):</label>
-                    <input type="number" id="debt" name="Total_Debt" placeholder="कुल बकाया लोन कितना है">
+                    <label for="debt">Total Debt / Loan Amount (₹):</label>
+                    <input type="number" id="debt" name="Total_Debt" placeholder="Total pending loan">
                 </div>
                 <div class="input-group">
-                    <label for="stress">मुख्य समस्या या तनाव:</label>
-                    <textarea id="stress" name="Problem_Description" rows="3" placeholder="अपनी वित्तीय समस्या संक्षेप में लिखें"></textarea>
+                    <label for="stress">Main Problem or Stress:</label>
+                    <textarea id="stress" name="Problem_Description" rows="3" placeholder="Describe your financial challenge briefly"></textarea>
                 </div>
-                <button type="submit" class="submit-btn">रजिस्टर करें और समाधान पाएं</button>
+                <button type="submit" class="submit-btn">Register & Get Solution</button>
             </form>
         </div>
-
-        <!-- 2. ADMIN DASHBOARD WINDOW (Founder Window) -->
-        <div id="admin-dashboard">
-            <h3>🔐 फाउंडर / एडमिन कंट्रोल पैनल (Preeti Manikant Choudhary)</h3>
-            <div class="admin-stats">
-                <div class="stat-item">
-                    <h4>Active</h4>
-                    <p>सिस्टम स्टेटस</p>
-                </div>
-                <div class="stat-item">
-                    <h4>Direct</h4>
-                    <p>ईमेल लीड्स सिंक</p>
-                </div>
-            </div>
-            <div class="admin-info-box">
-                <p><b>व्यवस्था स्थिति:</b> आपकी वेबसाइट पूरी तरह लाइव और सुरक्षित है।</p>
-                <p><b>डेटा डेस्टिनेशन:</b> ग्राहकों द्वारा भरे गए सभी फॉर्म का डेटा सीधे आपकी सुरक्षित ईमेल <b>choudharypreeti2022@gmail.com</b> पर भेजा जा रहा है।</p>
-                <p><b>सुझाव:</b> आप जब चाहें अपने ईमेल इनबॉक्स में जाकर नए ग्राहकों की सूची देख सकती हैं और उनसे संपर्क कर सकती हैं।</p>
-            </div>
-            <button onclick="showUserView()" class="submit-btn" style="background-color: var(--secondary-color);">यूजर फॉर्म पर वापस जाएं</button>
-        </div>
-
     </div>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 CrediServe Solutions. All Rights Reserved. | Karjat, Maharashtra | Founder: Preeti Manikant Choudhary</p>
     </footer>
 
-    <!-- JavaScript to Switch Windows Seamlessly -->
     <script>
-        function showAdminView() {
-            document.getElementById('user-view').style.display = 'none';
-            document.getElementById('admin-dashboard').style.display = 'block';
-        }
-        function showUserView() {
-            document.getElementById('admin-dashboard').style.display = 'none';
-            document.getElementById('user-view').style.display = 'block';
+        const translations = {
+            hi: {
+                heroTitle: "कर्ज के तनाव से आजादी, एक नई और अनुशासन भरी जिंदगी",
+                heroDesc: "हम आपके वित्तीय बोझ, खर्च और लोन को व्यवस्थित कर आपको एक सुरक्षित ऑटोमैटिक रास्ता दिखाते हैं, ताकि आप और आपका परिवार मानसिक तनाव से पूरी तरह मुक्त हो सकें।",
+                heroBtn: "अभी रजिस्ट्रेशन करें",
+                feat1Title: "ऑटोमैटिक वित्तीय विश्लेषण",
+                feat1Desc: "अपनी मासिक आय, खर्च और कुल लोन की सही जानकारी दर्ज करें और तुरंत स्मार्ट समाधान प्राप्त करें।",
+                feat2Title: "नैतिकता और जीवन शिक्षा",
+                feat2Desc: "पैसे के सही प्रबंधन, वित्तीय साक्षरता और जीवन में अनुशासन बनाए रखने की विशेष ट्रेनिंग।",
+                feat3Title: "पूर्ण मानसिक शांति",
+                feat3Desc: "कर्ज के दबाव और कॉल्स से बाहर निकलकर एक सुरक्षित और आत्मनिर्भर भविष्य का निर्माण करें।"
+            },
+            mr: {
+                heroTitle: "कर्जाच्या तणावातून मुक्ती, एक नवीन आणि शिस्तबद्ध जीवन",
+                heroDesc: "आम्ही तुमची आर्थिक ओझे, खर्च आणि कर्जे व्यवस्थित करून तुम्हाला एक सुरक्षित स्वयंचलित मार्ग दाखवतो, जेणेकरून तुम्ही मानसिक तणावातून पूर्णपणे मुक्त होऊ शकाल.",
+                heroBtn: "आता नोंदणी करा",
+                feat1Title: "स्वयंचलित आर्थिक विश्लेषण",
+                feat1Desc: "तुमचे मासिक उत्पन्न, खर्च आणि एकूण कर्जाची अचूक माहिती प्रविष्ट करा आणि त्वरित स्मार्ट उपाय मिळवा.",
+                feat2Title: "नैतिकता आणि जीवन शिक्षण",
+                feat2Desc: "योग्य पैशांचे व्यवस्थापन, आर्थिक साक्षरता आणि जीवनात शिस्त राखण्यासाठी विशेष प्रशिक्षण.",
+                feat3Title: "पूर्ण मानसिक शांतता",
+                feat3Desc: "कर्जाचा दबाव आणि कॉल्सपासून मुक्त होऊन सुरक्षित आणि स्वावलंबी भविष्याची निर्मिती करा."
+            },
+            en: {
+                heroTitle: "Freedom from Debt Stress, A New Disciplined Life",
+                heroDesc: "We analyze your financial burdens, expenses, and loans to provide you with a smart automated roadmap, helping you achieve complete mental peace.",
+                heroBtn: "Register Now",
+                feat1Title: "Automated Financial Analysis",
+                feat1Desc: "Enter your monthly income, expenses, and total debt to instantly receive smart resolution strategies.",
+                feat2Title: "Ethics & Life Education",
+                feat2Desc: "Specialized training in proper money management, financial literacy, and maintaining life discipline.",
+                feat3Title: "Complete Mental Peace",
+                feat3Desc: "Break free from debt pressure and recovery calls to build a secure, self-reliant future."
+            }
+        };
+
+        function changeLanguage(lang) {
+            if (lang === 'en' || !translations[lang]) {
+                location.reload();
+                return;
+            }
+            const data = translations[lang];
+            document.getElementById('t-hero-title').innerText = data.heroTitle;
+            document.getElementById('t-hero-desc').innerText = data.heroDesc;
+            document.getElementById('t-hero-btn').innerText = data.heroBtn;
+            document.getElementById('t-feat1-title').innerText = data.feat1Title;
+            document.getElementById('t-feat1-desc').innerText = data.feat1Desc;
+            document.getElementById('t-feat2-title').innerText = data.feat2Title;
+            document.getElementById('t-feat2-desc').innerText = data.feat2Desc;
+            document.getElementById('t-feat3-title').innerText = data.feat3Title;
+            document.getElementById('t-feat3-desc').innerText = data.feat3Desc;
         }
     </script>
-
 </body>
 </html>
